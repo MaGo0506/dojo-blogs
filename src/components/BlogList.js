@@ -1,8 +1,7 @@
 import * as React from 'react';
 
-export const BlogList = (props) => {
-    const blogs = props.blogs,
-        title = props.title;
+export const BlogList = ({blogs, title, handleDelete}) => {
+
 
     return (
         <div className="blog-list">
@@ -11,6 +10,9 @@ export const BlogList = (props) => {
                 <div className="blog-preview" key={blog.id}>
                     <h2>{blog.title}</h2>
                     <p>Written by {blog.author}</p>
+                    <button onClick={() => handleDelete(blog.id)}>
+                        Delete blog
+                    </button>
                 </div>
             ))}
         </div>
