@@ -2,7 +2,6 @@ import * as React from 'react';
 
 export const BlogList = ({blogs, title, handleDelete}) => {
 
-
     return (
         <div className="blog-list">
             <h1>{title}</h1>
