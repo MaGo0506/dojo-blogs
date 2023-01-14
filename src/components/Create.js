@@ -3,7 +3,13 @@ import {useState} from "react";
 export const Create = () => {
     const [title, setTitle] = useState(''),
         [body, setBody] = useState(''),
-        [selectedOption, setSelectedOption] = useState('mario')
+        [author, setAuthor] = useState('mario')
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const blog = {title, body, author}
+        console.log(blog)
+    }
 
     return (
         <div className="create">
@@ -24,17 +30,17 @@ export const Create = () => {
                 />
                 <label>Blog author:</label>
                 <select
-                    value={selectedOption}
-                    onChange={(e) => setSelectedOption(e.target.value)}
+                    value={author}
+                    onChange={(e) => setAuthor(e.target.value)}
                 >
                     <option value="mario">Mario</option>
                     <option value="yoshi">Yoshi</option>
                     <option value="ryu">Ryu</option>
                 </select>
-                <button>Add Blog</button>
+                <button onClick={handleSubmit}>Add Blog</button>
                 <p>{title}</p>
                 <p>{body}</p>
-                <p>{selectedOption}</p>
+                <p>{author}</p>
             </form>
         </div>
     );
